@@ -1,0 +1,116 @@
+body {
+  background: linear-gradient(to bottom, #e0f2f1, #004d40);
+}
+.btn-wrapper {
+  min-height: 800px;
+  color: #fff;
+  padding-top: 30%;
+  border-radius: 10px;
+}
+
+.swap {
+  perspective: 500px;
+  -webkit-perspective: 500px;
+  -moz-perspective: 500px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  border-radius: 10px;
+}
+
+.swap div {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  border: #000000 solid 1px;
+  pointer-events: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.swap div:nth-child(1) {
+  color: #000000;
+  background-color: #ffffff;
+  transform: translateZ(0px);
+  -webkit-transform: translateZ(0px);
+  -moz-transform: translateZ(0px);
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transform-origin: 50% 50% -25px;
+  -webkit-transform-origin: 50% 50% -25px;
+  -moz-transform-origin: 50% 50% -25px;
+  border-radius: 10px;
+}
+
+.swap div:nth-child(2) {
+  color: #ffffff;
+  background-color: #000000;
+  transform: rotateX(90deg);
+  -webkit-transform: rotateX(90deg);
+  -moz-transform: rotateX(90deg);
+  transition: all 0.2s ease 0.05s;
+  -webkit-transition: all 0.2s ease 0.05s;
+  -moz-transition: all 0.2s ease 0.05s;
+  transform-origin: 50% 50% -25px;
+  -webkit-transform-origin: 50% 50% -25px;
+  -moz-transform-origin: 50% 50% -25px;
+  border-radius: 10px;
+}
+
+.swap:hover div:nth-child(1) {
+  color: #000000;
+  background-color: #808080;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transform: translateZ(-200px);
+  -webkit-transform: translateZ(-200px);
+  -moz-transform: translateZ(-200px);
+  border-radius: 10px;
+}
+
+.swap:hover div:nth-child(2) {
+  color: #ffffff;
+  transition: all 0.2s ease 0.05s;
+  -webkit-transition: all 0.2s ease 0.05s;
+  -moz-transition: all 0.2s ease 0.05s;
+  transform: rotateX(0deg);
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  border-radius: 10px;
+}
+.button_base {
+  margin: 0;
+  border: 0;
+  font-size: 18px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -100px;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-user-select: none;
+  cursor: default;
+  border-radius: 10px;
+}
+
+.button_base:hover {
+  cursor: pointer;
+}
+
+.start-btn {
+  display: inline-block;
+  width: 200px;
+  height: 60px;
+  border: 1px solid;
+  border-radius: 10px;
+}

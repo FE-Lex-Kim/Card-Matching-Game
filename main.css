@@ -1,0 +1,52 @@
+body {
+  background: linear-gradient(to bottom, #e0f2f1, #004d40);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50vw;
+  min-height: 800px;
+  margin: 0 auto;
+  padding-top: 50px;
+  border-radius: 10px;
+}
+.card {
+  width: 100px;
+  height: 150px;
+  margin: 10px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 1s;
+  cursor: pointer;
+}
+.flipped {
+  transform: rotateY(180deg);
+}
+.card-front {
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100px;
+  height: 150px;
+  border: 1px solid;
+  border-radius: 10px;
+  position: absolute;
+  transform: rotateY(180deg);
+  z-index: 1;
+  backface-visibility: hidden;
+  cursor: pointer;
+}
+.card-back {
+  background-image: url(./images/card-back.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100px;
+  height: 150px;
+  border: 1px solid;
+  border-radius: 10px;
+  position: absolute;
+  transform: rotateY(0deg);
+  z-index: 2;
+  backface-visibility: hidden;
+  cursor: pointer;
+}
