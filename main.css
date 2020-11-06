@@ -65,3 +65,22 @@ body {
   backface-visibility: hidden;
   cursor: pointer;
 }
+.score{
+  position: absolute;
+  width: 200px;
+  top: -30px;
+  right: 150px;
+  font-size: 70px;
+  border: 1px solid black;
+}
+.timeout{
+  position: absolute;
+  width: 200px;
+  top: 400px;
+  right: 150px;
+  font-size: 50px;
+  border: 1px solid black;
+}
+.timeoutNumber{
+  
+}

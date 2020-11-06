@@ -17,8 +17,6 @@ let cardColor = [
 let compareTwoBackgroundColor = [];
 // 클릭을 두번했을때
 let count = 0;
-// 전체 점수
-let score = 100;
 
 const $container = document.querySelector('.container');
 const $cards = document.querySelectorAll('.card');
@@ -26,6 +24,9 @@ const $cardFronts = document.querySelectorAll('.card-front');
 const $cardBack = document.querySelector('.card-back');
 const $countStart = document.querySelector('.count-Start');
 const $start = document.querySelector('.start');
+const $scoreNumber = document.querySelector('.scoreNumber');
+const $timeoutNumber = document.querySelector('.timeoutNumber');
+
 
 // 로딩시 front backgroundColor 컬러에 색깔 대입
 window.addEventListener('DOMContentLoaded' , () => {
@@ -36,11 +37,21 @@ window.addEventListener('DOMContentLoaded' , () => {
 });
 
 window.onload = () => {
+  // 화면 스타트 시간 구현
   const countStart = setInterval(() => {
     $countStart.textContent = +($countStart.textContent) - 1;
     if(+$countStart.textContent === -1) {
       clearInterval(countStart);
       $start.style.transform = `translate3d(9999px, 0, 0)`;
+    }
+  }, 1000);
+
+  // 게임 시간제한 구현
+  const count60 = setInterval(() => {
+    $timeoutNumber.textContent = +($timeoutNumber.textContent) - 1;
+    if(+$timeoutNumber.textContent === -1) {
+      clearInterval(count60);
+      window.location.reload();
     }
   }, 1000);
 };
@@ -69,14 +80,24 @@ $container.onclick = ({ target }) => {
         count = 0;
 
         // 틀린경우 점수를 10점씩 감점시킨다.
-        score -= 10;
+        $scoreNumber.textContent = +$scoreNumber.textContent - 10;
+
+        // 0점이 된경우 새로고침
+        if($scoreNumber.textContent === '0'){
+          window.location.reload()
+        }
       }, 500);
     } else if (compareTwoBackgroundColor.length === 2 && compareTwoBackgroundColor[0].style.backgroundColor === compareTwoBackgroundColor[1].style.backgroundColor) {
       compareTwoBackgroundColor = [];
       count = 0;
     };
+    if($scoreNumber.textContent === '0'){
+      window.location.reload()
+    }
   }
 };
+
+
 
 
 
