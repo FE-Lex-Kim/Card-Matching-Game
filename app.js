@@ -15,6 +15,7 @@ let cardColor = [
 // state
 // 뒤집은 두카드의 요소 확인
 let compareTwoBackgroundColor = [];
+
 // 클릭을 두번했을때
 let count = 0;
 
@@ -80,11 +81,12 @@ $container.onclick = ({ target }) => {
         // 클릭을 0번으로 초기화해준다
         count = 0;
 
-        // 틀린경우 점수를 10점씩 감점시킨다.
+        // 틀린 경우 점수를 10점씩 감점시킨다.
         $scoreNumber.textContent = +$scoreNumber.textContent - 10;
 
-        // 0점이 된경우 새로고침
+        // 0점이 된 경우 새로고침
         if($scoreNumber.textContent === '0'){
+          window.location.href = '/index.html';
         }
       }, 500);
     } else if (compareTwoBackgroundColor.length === 2 && compareTwoBackgroundColor[0].style.backgroundColor === compareTwoBackgroundColor[1].style.backgroundColor) {
@@ -92,7 +94,7 @@ $container.onclick = ({ target }) => {
       count = 0;
     };
     if($scoreNumber.textContent === '0'){
-      window.location.href = 'http://127.0.0.1:55522/index.html';
+      window.location.href = '/index.html';
     }
   }
 };
