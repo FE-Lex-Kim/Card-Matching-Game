@@ -27,7 +27,6 @@ const $start = document.querySelector('.start');
 const $scoreNumber = document.querySelector('.scoreNumber');
 const $timeoutNumber = document.querySelector('.timeoutNumber');
 
-
 // 로딩시 front backgroundColor 컬러에 색깔 대입
 window.addEventListener('DOMContentLoaded' , () => {
   [...$cardFronts].forEach(cardFront => {
@@ -49,9 +48,9 @@ window.onload = () => {
   // 게임 시간제한 구현
   const count60 = setInterval(() => {
     $timeoutNumber.textContent = +($timeoutNumber.textContent) - 1;
-    if(+$timeoutNumber.textContent === -1) {
+    if(+$timeoutNumber.textContent === 0) {
       clearInterval(count60);
-      window.location.reload();
+      window.location.href = 'http://127.0.0.1:55522/index.html';
     }
   }, 1000);
 };
@@ -59,10 +58,9 @@ window.onload = () => {
 // 카트 클릭 이벤트
 $container.onclick = ({ target }) => {
   // 카드 뒷장인지 확인후 맞으면 flipped 클래스 추가해서 뒤집어준다.
-  if(count < 2 && target.classList.contains('card-back')){
+  if (count < 2 && target.classList.contains('card-back')){
     target.parentNode.classList.add('flipped');
     count += 1;
-    console.log(count);
     // 뒤집은 카드의 요소를 할당
     compareTwoBackgroundColor = [...compareTwoBackgroundColor, target.previousElementSibling];
     
@@ -71,9 +69,12 @@ $container.onclick = ({ target }) => {
     if (compareTwoBackgroundColor.length === 2 && compareTwoBackgroundColor[0].style.backgroundColor !== compareTwoBackgroundColor[1].style.backgroundColor) {
       // 카드를 다시 뒤집어 준다. class의 flopped를 뺴준다.
       setTimeout(() => {
-        compareTwoBackgroundColor.forEach(todo => {
-          todo.parentNode.classList.remove('flipped');
+        // 카드를 다시 뒤집어준다
+        compareTwoBackgroundColor.forEach(element => {
+          element.parentNode.classList.remove('flipped');
         });
+
+        // 배열를 초기화 시켜준다.
         compareTwoBackgroundColor = [];
 
         // 클릭을 0번으로 초기화해준다
@@ -84,7 +85,6 @@ $container.onclick = ({ target }) => {
 
         // 0점이 된경우 새로고침
         if($scoreNumber.textContent === '0'){
-          window.location.reload()
         }
       }, 500);
     } else if (compareTwoBackgroundColor.length === 2 && compareTwoBackgroundColor[0].style.backgroundColor === compareTwoBackgroundColor[1].style.backgroundColor) {
@@ -92,13 +92,7 @@ $container.onclick = ({ target }) => {
       count = 0;
     };
     if($scoreNumber.textContent === '0'){
-      window.location.reload()
+      window.location.href = 'http://127.0.0.1:55522/index.html';
     }
   }
 };
-
-
-
-
-
-

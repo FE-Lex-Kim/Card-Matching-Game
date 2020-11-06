@@ -1,5 +1,7 @@
 body {
-  background: linear-gradient(to bottom, #e0f2f1, #004d40);
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
   overflow-y: hidden; overflow-x: hidden;
 }
@@ -82,5 +84,5 @@ body {
   border: 1px solid black;
 }
 .timeoutNumber{
-  
+
 }
