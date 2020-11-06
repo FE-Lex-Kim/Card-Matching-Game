@@ -16,17 +16,22 @@ let cardColor = [
 const $container = document.querySelector('.container');
 const $cards = document.querySelectorAll('.card');
 const $cardFront = document.querySelectorAll('.card-front');
+const $cardBack = document.querySelectorAll('.card-back');
 
-const randomCards = () => {
-  cardColor.forEach(() => {
-    cardColor += [
-      ...cardColor.splice(Math.floor(Math.random() * cardColor.length), 1),
-      ...cardColor,
-    ];
+const randomColor = () => {
+  cardColor = [
+    ...cardColor.splice(Math.floor(Math.random() * cardColor.length), 1),
+    ...cardColor,
+  ];
+
+  return cardColor;
+};
+
+const addColor = () => {
+  const randomTemp = randomColor();
+  [...$cardFront].forEach((card, index) => {
+    card.style.backgroundColor = randomTemp[index];
   });
 };
 
-randomCards();
-console.log(cardColor);
-
-// [...$cardFront].map();
+window.onload = addColor;
