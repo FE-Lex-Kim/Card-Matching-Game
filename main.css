@@ -1,7 +1,22 @@
 body {
   background: linear-gradient(to bottom, #e0f2f1, #004d40);
+  margin: 0;
+  overflow-y: hidden; overflow-x: hidden;
 }
-
+.start{
+  z-index: 9999;
+  position: absolute;
+  width: 2000px;
+  height: 2000px;
+  background-color: black;
+}
+.count-Start{
+  color: white;
+  position: absolute;
+  font-size: 100px;
+  top: 200px;
+  left: 750px;
+}
 .container {
   display: flex;
   flex-wrap: wrap;
