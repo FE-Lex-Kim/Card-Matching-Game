@@ -18,4 +18,11 @@ const $cards = document.querySelectorAll('.card');
 const $cardFront = document.querySelectorAll('.card-front');
 const $cardBack = document.querySelectorAll('.card-back');
 
-// [...$cardFront].map();
+const randomColor = () => {
+  cardColor = [
+    ...cardColor.splice(Math.floor(Math.random() * cardColor.length), 1),
+    ...cardColor,
+  ];
+
+  return cardColor;
+};
