@@ -26,3 +26,12 @@ const randomColor = () => {
 
   return cardColor;
 };
+
+const addColor = () => {
+  const randomTemp = randomColor();
+  [...$cardFront].forEach((card, index) => {
+    card.style.backgroundColor = randomTemp[index];
+  });
+};
+
+window.onload = addColor;
